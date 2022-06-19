@@ -1,0 +1,166 @@
+.config-wrapper .main--wrapper .content--wrapper {
+  padding: 24px 30px;
+  border: 1px solid #3072ff;
+  background: #ffffff;
+}
+.config-wrapper .main--wrapper .content--wrapper .list-page {
+  margin: 1rem 10px 10px 10px;
+}
+
+.config-wrapper table thead tr th {
+  white-space: nowrap;
+  text-align: center;
+}
+
+.config-wrapper table tbody tr td {
+  text-align: center;
+}
+
+.config-wrapper table tbody tr td:first-child {
+  padding-left: 0 !important;
+  min-width: auto !important;
+}
+
+.config-modal .modal-dialog .modal-content .modal-body label {
+  background: white;
+  color: black;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+}
+
+.config-modal .modal-dialog .modal-content .modal-body label::after {
+  content: ' *';
+  color: red;
+  font-size: 16px;
+}
+
+.config-modal .modal-dialog {
+  max-width: 600px !important;
+}
+
+.config-modal .modal-dialog .modal-content .modal-body .config-filed {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.config-modal .modal-dialog .modal-content .modal-body .config-filed input {
+  width: 100%;
+  border: 1px solid #babac1;
+  border-radius: 4px;
+}
+
+.config-modal
+  .modal-dialog
+  .modal-content
+  .modal-body
+  .config-filed
+  .value-error {
+  margin: 0px;
+  font-size: 10px;
+  color: red;
+  text-transform: initial;
+}
+
+.config-modal .modal-dialog .modal-content .modal-body {
+  padding: 0;
+}
+
+.config-modal .modal-dialog .modal-content .modal-body .values {
+  padding: 1rem;
+}
+
+.config-modal .modal-dialog .modal-content .modal-body .values h6 {
+  color: #3072ff;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.config-modal .modal-dialog .modal-content .modal-body .values h5 {
+  color: #3072ff;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.config-modal .modal-dialog .modal-content .modal-body .values .input-wrapper {
+  display: flex;
+  gap: 16px;
+}
+
+.config-modal .modal-dialog .modal-content .modal-body .seperator {
+  height: 1px;
+  width: 100%;
+  background: #dee2e6;
+  margin: 20px 0;
+}
+
+.config-tr {
+  color: #3072ff;
+}
+
+.tr-hover:hover {
+  background-color: transparent !important;
+}
+
+.top-hat-table table tr:hover {
+  cursor: default !important;
+}
+
+.gaussian-table table tr:hover {
+  cursor: default !important;
+}
+
+.form-group-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-group-header h6:nth-child(2) {
+  color: #3072ff;
+}
+
+.value-error {
+  margin-top: 5px;
+  font-size: 12px;
+  color: red;
+  text-transform: inherit;
+}
+
+.main-wrapper .side-button {
+  margin-bottom: 16px;
+}
+
+.container {
+  z-index: 99;
+}
+
+.custom_class {
+  display: block;
+}
+.custom-btn {
+  background: #3072ff;
+  border-radius: 4px;
+  padding: 10px 24px;
+  text-decoration: none;
+  color: white !important;
+  font-weight: 800;
+  font-size: 14px;
+  border: 1px solid transparent;
+}
+
+.custom-btn:hover {
+  color: white !important;
+}
+
+.content .content-footer {
+  padding: 24px 30px;
+  border: 1px solid #3072ff;
+  background: #ffffff;
+}
+
+.content-footer a i {
+  margin-right: 16px;
+}

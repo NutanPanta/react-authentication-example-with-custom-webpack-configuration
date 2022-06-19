@@ -1,0 +1,32 @@
+.sidebar {
+  width: 100px;
+  position: fixed;
+  left: 0;
+  padding: 0;
+  top: 0;
+  height: 100%;
+  z-index: 1050;
+  .sidebarWrapper {
+    img {
+      width: 50px;
+      margin: 10px auto;
+      display: table;
+    }
+    .sidebar__nav {
+      margin-top: 10px;
+      &__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        width: 100%;
+        &.active {
+          color: #3072ff !important;
+        }
+        svg {
+          width: 20px;
+        }
+      }
+    }
+  }
+}

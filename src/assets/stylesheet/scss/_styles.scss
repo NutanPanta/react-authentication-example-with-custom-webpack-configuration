@@ -1,0 +1,38 @@
+// bootstrap
+@use '~bootstrap/scss/bootstrap';
+
+//Components
+@use 'components/__components-dir';
+
+//Layout
+@use 'layouts/__layouts-dir';
+
+// body {
+//   background: url('/src/assets/images/bg-img.png');
+//   background-repeat: no-repeat;
+//   background-position: center center;
+//   background-size: cover;
+//   height: 100vh;
+// }
+
+.main-wrapper {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  .contents {
+    margin-left: 100px;
+    width: 100%;
+    z-index: 999;
+  }
+}
+
+.main-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background-color: rgba(196, 196, 196, 0.1);
+}

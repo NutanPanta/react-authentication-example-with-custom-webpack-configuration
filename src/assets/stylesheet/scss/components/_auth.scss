@@ -1,0 +1,61 @@
+/* login css */
+.admin__login__wrapper {
+  position: absolute;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 11;
+}
+.admin__login__wrapper .admin__login--content {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  --bg-opacity: 1;
+  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, var(--bg-opacity));
+  --text-opacity: 1;
+  color: #484554;
+  color: rgba(72, 69, 84, var(--text-opacity));
+  box-shadow: 0px 0px 30px rgb(0 0 0 / 5%);
+  z-index: 20;
+}
+.admin__login__wrapper .admin__login--content .login__holder {
+  display: grid;
+  grid-gap: 2rem;
+  grid-gap: 2rem;
+  gap: 2rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  text-align: left;
+  max-width: 500px;
+}
+/* .admin__login__wrapper .admin__login--content .login__holder .image__box{
+  max-width: 320px;
+} */
+.admin__login__wrapper .admin__login--content .login__holder .header__box h5 {
+  font-size: 30px;
+  font-weight: 800;
+}
+.admin__login__wrapper .admin__login--content .login__holder .header__box p {
+  font-size: 16px;
+  font-weight: 300;
+  color: #9fa2b4 !important;
+}
+.has__icon-end {
+  position: relative;
+  span {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 0;
+    right: 0;
+    margin: 5px 10px;
+  }
+}
