@@ -1,11 +1,11 @@
-import Login from "../pages/Login";
+import Login from '../pages/Login';
 const authRoute = [
   {
-    path: "/login",
+    path: '/login',
     exact: true,
     secured: false,
-    element: <Login />,
-    feature: "login",
+    element: Login,
+    feature: 'login',
   },
 ];
 export default authRoute;

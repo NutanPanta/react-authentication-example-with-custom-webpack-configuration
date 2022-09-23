@@ -1,36 +1,55 @@
-// SAMPLE IMPLEMENTATION
+$micro: 8px;
+$tiny: 16px;
+$small: 24px;
+$medium: 40px;
+$large: 64px;
+$xl: 104px;
+$xxl: 168px;
+$Txl: 264px;
+$Lxl: 360px;
+$Fxl: 424px;
+$Fixl: 680px;
 
-// Colors
-// $red: #EF4B46;
-// $blue: dodgerblue;
-// $yellow: rgba(239, 181, 67, 1);
-$theme-color: #fff;
-$w3-white: #222222;
-$w3-lightblue: #00c1de;
-$brand-primary: #2ea3f2;
-$bg-light: #f8f9fa;
-$background-gray: #f8fafb !default;
-$background-gray-100: #f3eeee;
-$mediumgray: #888888;
-$text-gray: #9e9e9e;
+$xxxlText: 64px;
+$xxlText: 36px;
+$xlText: 22px;
+$largeText: 18px;
+$mediumText: 16px;
+$smallText: 14px;
+$tinyText: 12px;
+$thin: 100;
+$light: 300;
+$regular: 400;
+$mediumWeight: 500;
+$semibold: 600;
+$bold: 700;
+$black: 900;
 
-//navbar color
-$navbar-gray: #e3e9ed;
-$gray-light: #f3f4f6;
-$gray-light-100: #dbdcde;
-//border-color
-$bordercolor-gray: #e5eaf1;
-$bordercolor-gray-100: #ced4da;
-$bordercolor-gray-200: #dedede;
-$gray-500: #adb5bd !default;
+$lightBorderWidth: 1px;
+$borderWidth: 1px;
+$smallRadius: 6px;
+$bigRadius: 8px;
 
-//icon color
-$icon-gray: #adb5bd;
-$icon-green: #2b9f72;
-$icon_red: red;
+$basicShadow: 0 2px 4px 0 hsla(198, 45%, 10%, 0.12);
+$hoverShadow: 0 8px 12px 0 hsla(180, 5%, 92%, 0.16),
+  0 2px 8px 0 hsla(0, 0%, 0%, 0.08);
+$strongShadow: 0 2px 4px 0 hsla(198, 45%, 10%, 0.36),
+  0 8px 20px 0 hsla(197, 43%, 13%, 0.08);
+$strongerShadow: 0 2px 4px 0 hsla(198, 45%, 10%, 0.12),
+  0 2px 16px 0 hsla(198, 45%, 10%, 0.32);
+$bigShadow: 0 0 80px hsla(198, 45%, 10%, 0.08);
+$dropdownShadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+$dragAndDropSiteShadow: 0 4px 8px 0 rgba(19, 39, 48, 0.16),
+  0 0 0 1000px rgba(19, 39, 48, 0.5);
+$shallowShadow: 0 1px 10px 0 hsla(210, 7%, 22%, 0.06),
+  0 2px 4px 0 hsla(210, 7%, 22%, 0.08);
+$deepShadow: 0 16px 24px rgba(0, 0, 0, 0.07), 0 6px 30px rgba(0, 0, 0, 0.06),
+  0 8px 10px rgba(0, 0, 0, 0.1);
 
-//buttoncolor
-$mediumseagreen: #3cb371;
-$radiobutton-gray: #f4f4f4;
-//fontvariable
-$font-san: 'Open Sans', sans-serif;
+$background-light-theme: #f6f6f6;
+$background-dark-theme: #151a1e;
+
+$font-family-base: 'Roboto', sans-serif;
+
+$primary: #00334e;
+$primary-light: #2a536e;

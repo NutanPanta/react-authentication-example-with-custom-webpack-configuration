@@ -1,10 +1,11 @@
-import Home from '../pages/Home';
+import Home from '../pages/home';
+
 const homeRoutes = [
   {
-    path: '/',
+    path: '',
     exact: true,
-    secured: false,
-    element: <Home />,
+    secured: true,
+    element: Home,
     feature: 'home',
   },
 ];

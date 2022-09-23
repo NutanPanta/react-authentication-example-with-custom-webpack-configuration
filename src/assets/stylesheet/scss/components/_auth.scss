@@ -36,9 +36,7 @@
   text-align: left;
   max-width: 500px;
 }
-/* .admin__login__wrapper .admin__login--content .login__holder .image__box{
-  max-width: 320px;
-} */
+
 .admin__login__wrapper .admin__login--content .login__holder .header__box h5 {
   font-size: 30px;
   font-weight: 800;
@@ -58,4 +56,12 @@
     right: 0;
     margin: 5px 10px;
   }
+}
+input.error,
+select.error {
+  border: 1px solid red !important;
+}
+.input-feedback {
+  color: red;
+  margin-top: 0.25rem;
 }

@@ -1,23 +1,24 @@
-import { createSlice } from "@reduxjs/toolkit";
-
-const initialState = {
-  token: null,
-};
+import { createSlice } from '@reduxjs/toolkit';
 
 export const authSlice = createSlice({
-  name: "auth",
-  initialState,
+  name: 'auth',
+  initialState: { token: null, refresh: null },
   reducers: {
-    setUser: (state, action) => {
-      state.token = action.payload.token;
+    setCredentials: (state, action) => {
+      const { access, refresh } = action.payload;
+      state.token = access;
+      state.refresh = refresh;
     },
-    defaultState: (state) => {
-      state.token = initialState.token;
+    logout: (state, action) => {
+      state.token = null;
+      state.refresh = null;
+      localStorage.removeItem('access');
     },
   },
 });
 
-// Action creators are generated for each case reducer function
-export const { setUser, defaultState } = authSlice.actions;
+export const { setCredentials, logout } = authSlice.actions;
 
 export default authSlice.reducer;
+
+export const selectCurrentToken = (state) => state.auth.token;
