@@ -1,42 +1,29 @@
-import React, { useRef, useState } from 'react';
+import { useRef, useEffect } from 'react';
+
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { authApi } from '../reducers/authApi';
-import { setUser } from '../reducers/authSlice';
+
+import { useLoginUserMutation } from '../reducers/authApi';
+import { setCredentials } from '../reducers/authSlice';
+
+import { Button, Form } from 'react-bootstrap';
+
+import { Formik } from 'formik';
+import * as Yup from 'yup';
+
 import Logo from '../../../assets/images/logo.png';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 
 function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [loginUser, { error }] = authApi.useLoginUserMutation();
-  const [errorMessage, setErrorMessage] = useState(null);
-  const [showPassword, setShowPassword] = useState(false);
+  const [loginUser] = useLoginUserMutation();
 
-  const username = useRef(null);
-  const password = useRef(null);
-  const userLogin = async (event) => {
-    event.preventDefault();
-    setErrorMessage(null);
-    let data = {
-      username: username.current.value,
-      password: password.current.value,
-    };
-    let userData = await loginUser(data);
-    if (!userData?.error && userData.data?.token) {
-      let token = userData.data.token;
-      if (token) {
-        dispatch(setUser({ token }));
-        localStorage.setItem('token', token);
-        localStorage.setItem('username', data.username);
-        navigate('/home');
-      }
-    } else if (userData.error.originalStatus === 404) {
-      setErrorMessage('Internal Server Error');
-    }
-  };
+  const userRef = useRef();
+
+  useEffect(() => {
+    userRef.current.focus();
+  }, []);
 
   return (
     <div className='admin__login__wrapper'>
@@ -49,66 +36,94 @@ function Login() {
             <h5>Log In</h5>
             <p>Welcome to Authtication Example</p>
           </div>
-          <form onSubmit={(event) => userLogin(event)}>
-            <div
-              className={`error-messsage text-danger ${
-                error || errorMessage ? 'd-block mb-2' : 'd-none'
-              }`}
-            >
-              {errorMessage !== null
-                ? errorMessage
-                : error?.data.non_field_errors?.[0]}
-            </div>
-            <div className='form-group'>
-              <input
-                type='email'
-                className='form-control mb-4'
-                id='loginEmail'
-                placeholder='Email'
-                ref={username}
-                required
-              />
-            </div>
-            <div className='form-group'>
-              <div className='has__icon-end'>
-                <input
-                  type={`${showPassword ? 'text' : 'password'}`}
-                  className='form-control toogle_password mb-2'
-                  id='loginPassowrd'
-                  placeholder='Password'
-                  ref={password}
-                  required
-                />
+          <Formik
+            initialValues={{
+              email: '',
+              password: '',
+            }}
+            onSubmit={async (values) => {
+              await new Promise((resolve) => setTimeout(resolve, 500));
 
-                <span>
-                  {showPassword ? (
-                    <FontAwesomeIcon
-                      className='text-muted toogle-password'
-                      icon={solid('eye-slash')}
-                      onClick={() =>
-                        password.current.value.length > 0 &&
-                        setShowPassword(false)
-                      }
-                    />
-                  ) : (
-                    <FontAwesomeIcon
-                      className='text-muted toogle-password'
-                      icon={solid('eye')}
-                      onClick={() =>
-                        password.current.value.length > 0 &&
-                        setShowPassword(true)
-                      }
-                    />
+              await loginUser({ data: values })
+                .unwrap()
+                .then(
+                  (payload) => (
+                    localStorage.setItem('access', payload.access),
+                    dispatch(setCredentials({ ...payload })),
+                    navigate('/')
+                  )
+                )
+                .catch(() =>
+                  console.log('Provided email or password is incorrect')
+                );
+            }}
+            validationSchema={Yup.object().shape({
+              email: Yup.string()
+                .email()
+                .required('Email field cannot be empty'),
+              password: Yup.string().required('No password provided'),
+            })}
+          >
+            {({
+              values,
+              errors,
+              touched,
+              handleChange,
+              handleBlur,
+              handleSubmit,
+              isSubmitting,
+            }) => (
+              <Form onSubmit={handleSubmit}>
+                <Form.Group>
+                  <Form.Label></Form.Label>
+                  <Form.Control
+                    placeholder='Email'
+                    name='email'
+                    value={values.email}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    ref={userRef}
+                    className={
+                      errors.email && touched.email
+                        ? 'error c-input-h'
+                        : 'text-input c-input-h'
+                    }
+                  />
+                  {errors.email && touched.email && (
+                    <div className='input-feedback'>{errors.email}</div>
                   )}
-                </span>
-              </div>
-            </div>
-            <div className='login__footer d-flex flex-column'>
-              <button type='submit' className='btn btn-primary mt-3'>
-                Log In
-              </button>
-            </div>
-          </form>
+                </Form.Group>
+                <Form.Group className='mb-3'>
+                  <Form.Label></Form.Label>
+                  <Form.Control
+                    placeholder='Password'
+                    name='password'
+                    type='password'
+                    value={values.password}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                    className={
+                      errors.password && touched.password
+                        ? 'error c-input-h'
+                        : 'text-input c-input-h'
+                    }
+                  />
+                  {errors.password && touched.password && (
+                    <div className='input-feedback'>{errors.password}</div>
+                  )}
+                </Form.Group>
+                <Form.Group className='mb-3'>
+                  <Button
+                    className='my-3 btn-custom'
+                    type='submit'
+                    disabled={isSubmitting}
+                  >
+                    Login
+                  </Button>
+                </Form.Group>
+              </Form>
+            )}
+          </Formik>
         </div>
       </div>
     </div>

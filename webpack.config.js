@@ -13,15 +13,14 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     assetModuleFilename: 'images/[hash][ext][query]',
   },
-  performance: {
-    hints: false,
-    maxEntrypointSize: 512000,
-    maxAssetSize: 512000,
-  },
   module: {
     rules: [
       {
-        test: /\.(png|jpe?g|svg|ico)$/i,
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+      },
+      {
+        test: /\.(png|jpe?g|ico)$/i,
         type: 'asset',
       },
       {
@@ -47,11 +46,12 @@ module.exports = {
   },
 
   plugins: [
-    new Dotenv({ path: `./.env.${mode}`, systemvars: true }),
+    new Dotenv({ path: `./.env`, systemvars: true }),
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'public', 'index.html'),
-      favicon: path.resolve(__dirname, 'public', 'favicon.ico'),
+      publicPath: '/',
+      // favicon: path.resolve(__dirname, 'public', 'favicon.ico'),
     }),
   ],
 
@@ -64,5 +64,10 @@ module.exports = {
     static: './public',
     historyApiFallback: true,
     hot: true,
+  },
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000,
   },
 };
