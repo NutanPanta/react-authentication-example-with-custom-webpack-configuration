@@ -11,7 +11,7 @@
     "@fortawesome/react-fontawesome": "^0.1.18",
     "@reduxjs/toolkit": "^1.8.4",
     "babel-plugin-macros": "^3.1.0",
-    "bootstrap": "^5.2.0",
+    "bootstrap": "^5.2.2",
     "d3": "^7.6.1",
     "dotenv": "^16.0.1",
     "formik": "^2.2.9",
